@@ -11,6 +11,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Opening new windows
 vim.keymap.set('n', '<leader>h', ':new<Enter>', { desc = 'New Horizontal Window' })
 vim.keymap.set('n', '<leader>v', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
+vim.keymap.set('n', '<leader>x', '<C-w>x', { desc = 'Switch windows around'})
 
 -- Recenter when using Ctrl-U and Ctrl-D
 vim.keymap.set('n', '<C-u>','<C-u>zz')
@@ -34,6 +35,8 @@ vim.keymap.set('i','<C-H>','<C-w>')  -- Some terminals map BS to Ctrl-H
 vim.keymap.set('i','<C-BS>','<C-w>') -- Ctrl-w in insert mode deletes a word (closer to normal behaviour than '<Esc>dbi')
 
 -- [[DISABLE]]
+vim.keymap.set('n', 's', '<nop>') -- s is just a worse version of c
+vim.keymap.set('n', 'S', '<nop>') -- S is just a worse version of cc
 vim.keymap.set('n', 'gx', '<nop>') -- Is also disabled from showing in 'which-key' plugin
 
 -- [[OTHER KEYBINDS]] 
