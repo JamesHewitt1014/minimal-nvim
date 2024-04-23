@@ -1,4 +1,4 @@
--- [[KEYBINDS]]
+-- [[KEYBINDS]
 -- How to use: vim.keymap.set(mode, keybind, result, options)
 
 -- [[NAVIGATION]]
@@ -32,6 +32,9 @@ vim.keymap.set('i', '<C-s>', '<Esc>:update<Enter>')
 -- Ctrl-backspace in insert to delete a word
 vim.keymap.set('i','<C-H>','<C-w>')  -- Some terminals map BS to Ctrl-H
 vim.keymap.set('i','<C-BS>','<C-w>') -- Ctrl-w in insert mode deletes a word (closer to normal behaviour than '<Esc>dbi')
+
+-- [[DISABLE]]
+vim.keymap.set('n', 'gx', '<nop>') -- Is also disabled from showing in 'which-key' plugin
 
 -- [[OTHER KEYBINDS]] 
 -- TELESCOPE / Search : See lua/plugins/telescope.lua
