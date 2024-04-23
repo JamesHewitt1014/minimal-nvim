@@ -27,4 +27,5 @@ return {
   -- Other Utilities
   require 'plugins/gitsigns',
   require 'plugins/autopairs',
+	require 'plugins/colour-highlight',
 }

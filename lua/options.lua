@@ -46,14 +46,15 @@ vim.opt.splitbelow = true
 -- FILE HISTORY
 vim.opt.undofile = true -- Save undo history when document / nvim is closed
 
--- CLIPBOARD
--- Do :checkhealth or :h clipboard to check if NVIM has clipboard access
-vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard, sometimes on macOS / Windows might need be 'unnamed' instead.
+-- CLIPBOARD -- :checkhealth or :h clipboard to check if NVIM has clipboard access
+vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard (use 'unamed' if having issues)
 
--- Change paste so that it won't copy from deletes, s-replace, or copying over 
-vim.keymap.set('n', 'p', '"0p') -- Set to paste from only yank register
-vim.keymap.set('v', 'p', '"0p')
-vim.keymap.set('v', 'x', '"0d') -- Set x in visual mode to be a standard CUT
+-- Change (d)elete and (s)-replace to not copy text (no longer cut)
+vim.keymap.set('n', 'd', '"_d')
+vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set('n', 's', '"_s')
+vim.keymap.set('n', 'S', '"_S')
+vim.keymap.set('v', 's', '"_s')
 
 -- Highlight / Flash selection when copying text - autocommand (see ':help lua-guide-autocommands')
 vim.api.nvim_create_autocmd('TextYankPost', {
