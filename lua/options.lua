@@ -11,20 +11,6 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true -- Set to true if you have a Nerd Font installed
 vim.opt.termguicolors = true -- Needed for some terminals to display themes correctly
 
--- CLIPBOARD and FILE HISTORY
-vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard, on macOS / Windows might be 'unnamed' instead.
-vim.opt.undofile = true -- Save undo history
--- Do :checkhealth or :h clipboard to check if NVIM has clipboard access
-
--- Highlight / Flash selection when copying text - autocommand (see ':help lua-guide-autocommands')
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 -- LINE NUMBERS
 vim.opt.number = true -- Sets vim to use absolute line numbers
 -- Alternative for relative numbers is: vim.o.relativenumber = true
@@ -39,29 +25,48 @@ vim.opt.scrolloff = 10 -- minimium number of lines to keep above and below the c
 
 -- INDENTATION
 vim.opt.breakindent = true -- Allows lines to overflow
-vim.opt.tabstop = 4 -- Tab Size - Vim default is 8, VSCode default is 4
-vim.opt.shiftwidth = 4 -- Indentation using vim commands
-vim.opt.list = true -- Sets how neovim will display certain whitespace characters in the editor. See `:help 'list'` and `:help 'listchars'`
-vim.opt.listchars = { tab = '  ', trail = '·' } --  
+vim.opt.tabstop = 2 -- Tab Size - Vim default is 8, VSCode default is 4
+vim.opt.shiftwidth = 2 -- Indentation using vim commands
+-- Sets how neovim will display certain whitespace characters in the editor. See `:help 'list'` and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '  ', trail = '·' }
 
 -- VIM Search Settings
 vim.opt.ignorecase = true -- Ignore case-sensitive search with /?
 vim.opt.smartcase = true -- When true = If include one or more capital letters then be case sensitive
 vim.opt.hlsearch = true -- Highlight on search
 vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>') -- Clear search highlight when pressing escape
+vim.opt.inccommand = 'split' -- When using vim :(s)ubstite (search and replace) preview substitutions live in document as you type
 
 -- SPLIT SCREEN
 -- Defaults for how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--------------------------------------------------------------------------------- DONT KNOW????
+-- FILE HISTORY
+vim.opt.undofile = true -- Save undo history when document / nvim is closed
 
+-- CLIPBOARD
+-- Do :checkhealth or :h clipboard to check if NVIM has clipboard access
+vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard, sometimes on macOS / Windows might need be 'unnamed' instead.
+
+-- Change paste so that it won't copy from deletes, s-replace, or copying over 
+vim.keymap.set('n', 'p', '"0p') -- Set to paste from only yank register
+vim.keymap.set('v', 'p', '"0p')
+vim.keymap.set('v', 'x', '"0d') -- Set x in visual mode to be a standard CUT
+
+-- Highlight / Flash selection when copying text - autocommand (see ':help lua-guide-autocommands')
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- OTHER
 -- Decrease update time
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time (Displays which-key popup sooner)
 vim.opt.timeoutlen = 300
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'

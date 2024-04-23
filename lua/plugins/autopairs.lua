@@ -1,3 +1,4 @@
+-- NOTE: Mini plugin (which I use for the statusline) also includes an easy to configure pair plugin
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
@@ -5,7 +6,7 @@ return {
   dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
     require('nvim-autopairs').setup {
-		check_ts = true, -- Use treesitter to detect if there is a pair already
+		check_ts = true, -- Use treesitter to improve pair detection
 	}
     -- If you want to automatically add `(` after selecting a function or method
     local cmp_autopairs = require 'nvim-autopairs.completion.cmp'

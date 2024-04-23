@@ -20,9 +20,16 @@ vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = 'Open T
 vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = 'Show Errors (diagnostics)' })
 
 -- [[QUALITY OF LIFE IMPROVEMENTS]]
+-- Ctrl-s to save
 vim.keymap.set('n', '<C-s>', ':update<Enter>') --Ctrl+S is for saving
--- Could I also make a Ctrl + backspace ???
+vim.keymap.set('i', '<C-s>', '<Esc>:update<Enter>')
 
--- [[TELESCOPE & LSP FEATURES]] 
--- See lua/plugins/telescope.lua
--- See lua/plugins/language-tools/lsp-config.lua
+-- Ctrl-backspace in insert to delete a word
+vim.keymap.set('i','<C-H>','<C-w>')  -- Some terminals map BS to Ctrl-H
+vim.keymap.set('i','<C-BS>','<C-w>') -- Ctrl-w in insert mode deletes a word (closer to normal behaviour than '<Esc>dbi')
+
+-- [[OTHER KEYBINDS]] 
+-- TELESCOPE / Search : See lua/plugins/telescope.lua
+-- LSP / Code Completion : lua/plugins/language-tools/lsp-config.lua and lua/plugins/language-tools/code-completion.lua 
+-- CLIPBOARD : See lua/options.lua
+-- FILE TREE : See lua/plugins/neo-tree.lua
