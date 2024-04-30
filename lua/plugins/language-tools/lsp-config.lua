@@ -50,10 +50,7 @@ return {
 			vim.keymap.set('n', '<leader>ls', require('telescope.builtin').lsp_document_symbols,
 				{ desc = "Document Symbols" })
 			vim.keymap.set('n', '<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-				{ desc = "Workspace Symbols" })
-			-- Workspaces
-			-- vim.keymap.set('n', '<leader>lwa', vim.lsp.buf.add_workspace_folder, {desc = "Add workspace folder"})
-			-- vim.keymap.set('n', '<leader>lwr', vim.lsp.buf.remove_workspace_folder, {desc = "Remove workspace folder"})
+				{ desc = "Workspace Symbols" }) -- Note: Dynamic workspace lets the LSP determien the workspace whilst lsp_workspace_symbols will let the file you opened nvim from determine it.
 		end
 	},
 	-- OPTIONAL: NeoDev configures the Lua LSP to understand vim / nvim settings and documentation

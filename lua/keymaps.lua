@@ -17,6 +17,9 @@ vim.keymap.set('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window
 vim.keymap.set('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
 vim.keymap.set('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
+-- Tabs
+vim.keymap.set('n', '<leader>wt', ':tabnew<CR>', {silent = true, desc = 'Open new tab'})
+
 -- [[NVIM TERMINAL]]
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }) -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = ' Open Terminal'})
