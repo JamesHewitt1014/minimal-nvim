@@ -25,6 +25,9 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+      -- Telescope Theme Selector
+      'andrew-george/telescope-themes',
     },
     config = function()
       -- The easiest way to use Telescope, is to start by doing something like:
@@ -43,12 +46,14 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'themes')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Search Files' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search Open Files' })
-      vim.keymap.set('n', '<leader>T', builtin.colorscheme, { desc = 'Change Theme' })
+      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '󰱽 Search Files' })
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = ' Search Open Files' })
+      -- vim.keymap.set('n', '<leader>T', builtin.colorscheme, { desc = ' Change Theme' })
+      vim.keymap.set('n', '<leader>T', ':Telescope themes<CR>', { silent = true, desc = ' Change Theme' })
 
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s', function()
@@ -68,7 +73,11 @@ return {
           },
           path_display = { 'smart', shorten = { len = 3 } },
         }
-      end, { desc = 'Search (Grep) Open Files' })
+      end, { desc = ' Search (Grep) Open Files' })
+
+      --Git Pickers
+      vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'List git commits' })
+      vim.keymap.set('n', '<leader>gl', builtin.git_branches, { desc = 'List git branches' })
 
       -- UNCOMMENT FOR A Shortcut for searching your Neovim configuration files
       -- vim.keymap.set('n', '<leader>sn', function()

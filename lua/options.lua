@@ -13,6 +13,7 @@ vim.opt.termguicolors = true -- Needed for some terminals to display themes corr
 
 -- LINE NUMBERS
 vim.opt.number = true -- Sets vim to use absolute line numbers
+vim.opt.relativenumber = true
 -- Alternative for relative numbers is: vim.o.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
@@ -25,8 +26,8 @@ vim.opt.scrolloff = 10 -- minimium number of lines to keep above and below the c
 
 -- INDENTATION
 vim.opt.breakindent = true -- Allows lines to overflow
-vim.opt.tabstop = 2 -- Tab Size - Vim default is 8, VSCode default is 4
-vim.opt.shiftwidth = 2 -- Indentation using vim commands
+vim.opt.tabstop = 4 -- Tab Size - Vim default is 8, VSCode default is 4
+vim.opt.shiftwidth = 4 -- Indentation using vim commands
 -- Sets how neovim will display certain whitespace characters in the editor. See `:help 'list'` and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·' }
@@ -52,8 +53,9 @@ vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard (use 'u
 -- Change (d)elete and (c)change to not copy text (no longer cut)
 vim.keymap.set('n', 'd', '"_d')
 vim.keymap.set('v', 'd', '"_d')
---vim.keymap.set('n', 'c', '"_c')
+vim.keymap.set('n', 'c', '"_c')
 vim.keymap.set('v', 'c', '"_c')
+vim.keymap.set('v', 'p', 'P') -- Set paste in visual mode to delete instead of cutting copied over text
 -- Note: x can still be used as cut
 
 -- Highlight / Flash selection when copying text - autocommand (see ':help lua-guide-autocommands')

@@ -7,6 +7,7 @@ return {
 			'saadparwaiz1/cmp_luasnip', -- Core component
 			'hrsh7th/cmp-nvim-lsp', -- Source for lsp connection
 			'hrsh7th/cmp-path',   -- Source for directory/filepath completion
+			'hrsh7th/cmp-buffer',   -- Source for directory/filepath completion
 			-- 'rafamadriz/friendly-snippets', -- Source for a colleciton of snippets from VSCode
 		},
 		config = function()       -- See `:help cmp`
@@ -24,7 +25,8 @@ return {
 					-- ADD CODE COMPLETION SOURCES HERE:
 					{ name = 'nvim_lsp' },
 					{ name = 'luasnip' },
-					{ name = 'path' }
+					{ name = 'path' },
+					{ name = 'buffer' },
 					-- AI Completion tool would need to be connected here most likely
 				},
 				mapping = cmp.mapping.preset.insert {

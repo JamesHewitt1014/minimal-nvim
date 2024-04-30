@@ -12,9 +12,11 @@ return {
   -- THEMES
   require 'plugins.themes.tokyonight',
   require 'plugins.themes.gruvbox',
-  require 'plugins.themes.onedark',
+  require 'plugins.themes.catppuccin',
+  require 'plugins.themes.miasma',
+  require 'plugins.themes.nightfox',
   -- UI
-  require 'plugins/mini-statusline',
+  require 'plugins/lualine',
   require 'plugins/startscreen',
   require 'plugins/which-key',
   require 'plugins/telescope',
@@ -25,7 +27,8 @@ return {
   require 'plugins/language-tools/treesitter',
   require 'plugins/language-tools/kickstart/debug', -- Edit at some point :) 
   -- Other Utilities
+  require 'plugins/mini-comments', -- Comments
   require 'plugins/gitsigns',
   require 'plugins/autopairs',
-	require 'plugins/colour-highlight',
+  require 'plugins/colour-highlight',
 }

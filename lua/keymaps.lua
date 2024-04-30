@@ -2,6 +2,10 @@
 -- How to use: vim.keymap.set(mode, keybind, result, options)
 
 -- [[NAVIGATION]]
+-- Recenter when using Ctrl-U and Ctrl-D
+vim.keymap.set('n', '<C-u>','<C-u>zz')
+vim.keymap.set('n', '<C-d>','<C-d>zz')
+
 -- use CTRL + <hjkl> ti switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -9,20 +13,16 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Opening new windows
-vim.keymap.set('n', '<leader>h', ':new<Enter>', { desc = 'New Horizontal Window' })
-vim.keymap.set('n', '<leader>v', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
-vim.keymap.set('n', '<leader>x', '<C-w>x', { desc = 'Switch windows around'})
-
--- Recenter when using Ctrl-U and Ctrl-D
-vim.keymap.set('n', '<C-u>','<C-u>zz')
-vim.keymap.set('n', '<C-d>','<C-d>zz')
+vim.keymap.set('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window' })
+vim.keymap.set('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
+vim.keymap.set('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
 -- [[NVIM TERMINAL]]
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }) -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = 'Open Terminal'})
+vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = ' Open Terminal'})
 
 -- [[DIAGNOSTICS]]
-vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = 'Show Errors (diagnostics)' })
+vim.keymap.set('n', '<leader>le', vim.diagnostic.setloclist, { desc = 'Show Errors (diagnostics)' })
 
 -- [[QUALITY OF LIFE IMPROVEMENTS]]
 -- Ctrl-s to save
