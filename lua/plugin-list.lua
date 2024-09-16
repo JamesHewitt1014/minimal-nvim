@@ -15,6 +15,7 @@ return {
   require 'plugins.themes.catppuccin',
   require 'plugins.themes.miasma',
   require 'plugins.themes.nightfox',
+  require 'plugins.themes.moonfly',
   -- UI
   require 'plugins/lualine',
   require 'plugins/startscreen',

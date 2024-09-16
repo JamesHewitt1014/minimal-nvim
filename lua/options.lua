@@ -13,16 +13,13 @@ vim.opt.termguicolors = true -- Needed for some terminals to display themes corr
 
 -- LINE NUMBERS
 vim.opt.number = true -- Sets vim to use absolute line numbers
-vim.opt.relativenumber = true
--- Alternative for relative numbers is: vim.o.relativenumber = true
-vim.opt.signcolumn = 'yes'
-
--- MOUSE
-vim.opt.mouse = 'a' -- enable the mouse
+vim.opt.relativenumber = true -- Alternative for relative numbers is: vim.o.relativenumber = true
+vim.opt.signcolumn = 'yes' -- Column next to line numbers
 
 -- CURSOR
 vim.opt.cursorline = true -- highlight line your cursor is on
-vim.opt.scrolloff = 10 -- minimium number of lines to keep above and below the cursor
+vim.opt.scrolloff = 7 -- minimium number of lines to keep above and below the cursor
+vim.opt.mouse = 'a' -- enable the mouse
 
 -- INDENTATION
 vim.opt.breakindent = true -- Allows lines to overflow
@@ -34,8 +31,9 @@ vim.opt.listchars = { tab = '  ', trail = '·' }
 
 -- VIM Search Settings
 vim.opt.ignorecase = true -- Ignore case-sensitive search with /?
-vim.opt.smartcase = true -- When true = If include one or more capital letters then be case sensitive
+vim.opt.smartcase = true -- If search includes a capital then make it case senstive
 vim.opt.hlsearch = true -- Highlight on search
+vim.opt.incsearch = true -- Start searching as you type, rather then waiting for submit
 vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>') -- Clear search highlight when pressing escape
 vim.opt.inccommand = 'split' -- When using vim :(s)ubstite (search and replace) preview substitutions live in document as you type
 
@@ -49,14 +47,13 @@ vim.opt.undofile = true -- Save undo history when document / nvim is closed
 
 -- CLIPBOARD -- :checkhealth or :h clipboard to check if NVIM has clipboard access
 vim.opt.clipboard = 'unnamedplus' -- Sets neovim to use system clipboard (use 'unamed' if having issues)
-
 -- Change (d)elete and (c)change to not copy text (no longer cut)
-vim.keymap.set('n', 'd', '"_d')
-vim.keymap.set('v', 'd', '"_d')
-vim.keymap.set('n', 'c', '"_c')
-vim.keymap.set('v', 'c', '"_c')
-vim.keymap.set('v', 'p', 'P') -- Set paste in visual mode to delete instead of cutting copied over text
--- Note: x can still be used as cut
+vim.keymap.set('n', 'd', '"cd') -- Copies into register a copy register instead of the system clipboard
+vim.keymap.set('v', 'd', '"cd')
+vim.keymap.set('n', 'c', '"cc')
+vim.keymap.set('v', 'c', '"cc')
+-- vim.keymap.set('v', 'p', 'P') -- Set paste in visual mode to delete instead of cutting copied over text
+-- Note: x can still be used as Cut
 
 -- Highlight / Flash selection when copying text - autocommand (see ':help lua-guide-autocommands')
 vim.api.nvim_create_autocmd('TextYankPost', {

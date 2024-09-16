@@ -79,7 +79,7 @@ return {
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'List git commits' })
       vim.keymap.set('n', '<leader>gl', builtin.git_branches, { desc = 'List git branches' })
 
-      -- UNCOMMENT FOR A Shortcut for searching your Neovim configuration files
+      vim.keymap.set('n', '<leader>z', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })      -- UNCOMMENT FOR A Shortcut for searching your Neovim configuration files
       -- vim.keymap.set('n', '<leader>sn', function()
       --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
       -- end, { desc = '[S]earch [N]eovim files' })
