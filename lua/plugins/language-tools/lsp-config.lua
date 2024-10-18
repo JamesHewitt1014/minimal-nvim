@@ -14,7 +14,7 @@ return {
 				-- Default language server installs
 				ensure_installed = {
 					"lua_ls",    -- Lua LSP (because neovim uses lua) 
-					"tsserver",  -- LSP for JavaScript, TypeScript, and React
+					"ts_ls",  -- LSP for JavaScript, TypeScript, and React
 					"cssls",     -- CSS LSP from VSCode
 					"html"       -- HTML LSP from VSCode
 				}
