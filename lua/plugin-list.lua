@@ -22,14 +22,15 @@ return {
   require 'plugins/which-key',
   require 'plugins/telescope',
   require 'plugins/neo-tree',
-  -- Language Tools 
+  -- LANGUAGE TOOLS 
   require 'plugins/language-tools/lsp-config',
   require 'plugins/language-tools/code-completion',
   require 'plugins/language-tools/treesitter',
-  require 'plugins/language-tools/kickstart/debug', -- Edit at some point :) 
-  -- Other Utilities
-  require 'plugins/mini-comments', -- Comments
+  require 'plugins/language-tools/kickstart/debug', -- Remove at some point :) 
+  -- UTILITIES
+  require 'plugins/mini-comments',
   require 'plugins/gitsigns',
   require 'plugins/autopairs',
   require 'plugins/colour-highlight',
+  require 'plugins/todo-comments'
 }

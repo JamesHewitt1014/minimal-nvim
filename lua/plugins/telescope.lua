@@ -50,16 +50,15 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '󰱽 Search Files' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = ' Search Open Files' })
-      -- vim.keymap.set('n', '<leader>T', builtin.colorscheme, { desc = ' Change Theme' })
-      vim.keymap.set('n', '<leader>T', ':Telescope themes<CR>', { silent = true, desc = ' Change Theme' })
 
+      ---- FILE SEARCH / NAVIGATION ----
+      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Search Files' })
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search Open Files' })
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s', function()
         builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
+          grep_open_files = false,
+          prompt_title = 'Live Grep in Files',
           -- Different layout than default
           layout_strategy = 'vertical',
           dynamic_preview_title = true,
@@ -73,13 +72,21 @@ return {
           },
           path_display = { 'smart', shorten = { len = 3 } },
         }
-      end, { desc = ' Search (Grep) Open Files' })
+      end, { desc = 'Search (Grep) Files' })
+
+      ---- SELECTORS ----
+      -- vim.keymap.set('n', '<leader>T', builtin.colorscheme, { desc = ' Change Theme' })
+      vim.keymap.set('n', '<leader>T', ':Telescope themes<CR>', { silent = true, desc = 'Change Theme' })
+      vim.keymap.set('n', '<leader>m', builtin.marks, { desc = 'Marks' })
+      vim.keymap.set('n', '<leader>n', ':TodoTelescope<Enter>', {desc = 'Todos'})
+
+      -- ALL TELESCOPE SELECTORS 
+      -- vim.keymap.set('n', '<leader>z', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
 
       --Git Pickers
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'List git commits' })
       vim.keymap.set('n', '<leader>gl', builtin.git_branches, { desc = 'List git branches' })
 
-      vim.keymap.set('n', '<leader>z', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })      -- UNCOMMENT FOR A Shortcut for searching your Neovim configuration files
       -- vim.keymap.set('n', '<leader>sn', function()
       --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
       -- end, { desc = '[S]earch [N]eovim files' })

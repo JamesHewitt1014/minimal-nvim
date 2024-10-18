@@ -3,20 +3,17 @@ return {
       'folke/which-key.nvim',
       event = 'VimEnter', -- Sets the loading event to 'VimEnter'
       config = function() -- This is the function that runs, AFTER loading
-        require('which-key').setup()
-
-        -- normal mode
-        require('which-key').register {
-          ['<leader>l'] = { name = ' Language Tools', _ = 'which_key_ignore' },
-          ['<leader>g'] = { name = ' Git Tools', _ = 'which_key_ignore' },
-		  ['<leader>w'] = { name = ' Window Management', _ = 'which_key_ignore' },
-          ['<leader>ld'] = { name = ' Debug', _ = 'which_key_ignore'},
-				  ['gx'] = 'which_key_ignore', -- I can never get this key to work, just hides it
-        }
-        -- visual mode
-        require('which-key').register({
-          ['<leader>h'] = { 'Git [H]unk' },
-        }, { mode = 'v' })
+		require('which-key').add(
+				{
+					{'<leader>l', desc = "Language Tools", icon = ""},
+					{'<leader>g', desc = "Git Tools", icon = ""},
+					{'<leader>w', desc = "Window Management"},
+					{'<leader>T', icon = ""},
+					{'<leader>m', icon = ""},
+					{'<leader>n', icon = ""},
+					{'gx', hidden = true },
+				}
+			)
       end,
     },
   }

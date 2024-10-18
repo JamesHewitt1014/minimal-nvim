@@ -6,6 +6,7 @@
 vim.keymap.set('n', '<C-u>','<C-u>zz')
 vim.keymap.set('n', '<C-d>','<C-d>zz')
 
+-- [[WINDOW MANAGEMENT]]
 -- use CTRL + <hjkl> ti switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -17,8 +18,12 @@ vim.keymap.set('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window
 vim.keymap.set('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
 vim.keymap.set('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
+-- Resize windows
+vim.keymap.set('n', '<leader>wj', ':res -N', {desc = 'Decrease window size'})
+vim.keymap.set('n', '<leader>wk', ':res +N', {desc = 'Increase window size'})
+
 -- Tabs
-vim.keymap.set('n', '<leader>wt', ':tabnew<CR>', {silent = true, desc = 'Open new tab'})
+-- vim.keymap.set('n', '<leader>wt', ':tabnew<CR>', {silent = true, desc = 'Open new tab'})
 
 -- [[NVIM TERMINAL]]
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }) -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode

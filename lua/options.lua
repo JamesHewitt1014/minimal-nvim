@@ -31,9 +31,9 @@ vim.opt.listchars = { tab = '  ', trail = '·' }
 
 -- VIM Search Settings
 vim.opt.ignorecase = true -- Ignore case-sensitive search with /?
-vim.opt.smartcase = true -- If search includes a capital then make it case senstive
-vim.opt.hlsearch = true -- Highlight on search
-vim.opt.incsearch = true -- Start searching as you type, rather then waiting for submit
+vim.opt.smartcase = true  -- If search includes a capital then make it case senstive
+vim.opt.hlsearch = true   -- Highlight on search
+vim.opt.incsearch = true  -- Start searching as you type, rather then waiting for submit
 vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>') -- Clear search highlight when pressing escape
 vim.opt.inccommand = 'split' -- When using vim :(s)ubstite (search and replace) preview substitutions live in document as you type
 
@@ -66,8 +66,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- DIAGNOSTICS
 vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSignWarn"})
-vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "󰌵", texthl = "DiagnosticSignHint"})
 
 -- OTHER
