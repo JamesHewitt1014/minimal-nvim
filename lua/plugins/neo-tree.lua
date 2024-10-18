@@ -29,8 +29,8 @@ return {
 		close_if_last_window = true,
 		default_component_configs ={
 			icon = {
-				folder_closed = "",
-				folder_open = "",
+				folder_closed = " ",
+				folder_open = " ",
 			},
 			diagnostics = {
 			  symbols = {
