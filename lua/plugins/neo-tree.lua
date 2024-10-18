@@ -14,6 +14,10 @@ return {
 		{ '<Tab>', ':Neotree reveal<CR>', { silent = true, desc = 'NeoTree reveal' } },
 	},
 	opts = {
+		sources = {
+			"filesystem",
+			"document_symbols",
+		},
 		filesystem = {
 			window = {
 				mappings = {
@@ -23,7 +27,26 @@ return {
 			},
 		},
 		close_if_last_window = true,
+		default_component_configs ={
+			icon = {
+				folder_closed = "",
+				folder_open = "",
+			},
+			diagnostics = {
+			  symbols = {
+				hint = "󰌵",
+				info = " ",
+				warn = " ",
+				error = " ",
+			  },
+			  highlights = {
+				hint = "DiagnosticSignHint",
+				info = "DiagnosticSignInfo",
+				warn = "DiagnosticSignWarn",
+				error = "DiagnosticSignError",
+			  },
+		   },
+		},
 	},
 }
-
 
