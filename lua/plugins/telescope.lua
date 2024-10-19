@@ -53,7 +53,7 @@ return {
 
       ---- FILE SEARCH / NAVIGATION ----
       vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Search Files' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search Open Files' })
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Open Tabs (Buffers)' })
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s', function()
         builtin.live_grep {

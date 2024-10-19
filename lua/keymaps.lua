@@ -18,13 +18,9 @@ vim.keymap.set('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window
 vim.keymap.set('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
 vim.keymap.set('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
--- Resize windows
-vim.keymap.set('n', '<leader>wj', ':res -N', {desc = 'Decrease window size'})
-vim.keymap.set('n', '<leader>wk', ':res +N', {desc = 'Increase window size'})
-
 -- Change buffers
-vim.keymap.set('n', '<leader>k', ':bnext<Enter>', {desc = 'Go to next file'})
-vim.keymap.set('n', '<leader>j', ':bprev<Enter>', {desc = 'Go to previous file'})
+vim.keymap.set('n', '<leader>k', ':bnext<Enter>', {desc = 'Go to next tab'})
+vim.keymap.set('n', '<leader>j', ':bprev<Enter>', {desc = 'Go to previous tab'})
 
 -- Tabs
 -- vim.keymap.set('n', '<leader>wt', ':tabnew<CR>', {silent = true, desc = 'Open new tab'})

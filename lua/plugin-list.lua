@@ -13,6 +13,7 @@ return {
   require 'plugins.themes.catppuccin',
   require 'plugins.themes.nightfox',
   require 'plugins.themes.moonfly',
+  require 'plugins.themes.kanagawa',
   -- UI
   require 'plugins/lualine',
   require 'plugins/mini-startscreen', -- Also includes the mini.move plugin
