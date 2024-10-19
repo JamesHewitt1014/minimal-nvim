@@ -22,11 +22,16 @@ vim.keymap.set('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 vim.keymap.set('n', '<leader>wj', ':res -N', {desc = 'Decrease window size'})
 vim.keymap.set('n', '<leader>wk', ':res +N', {desc = 'Increase window size'})
 
+-- Change buffers
+vim.keymap.set('n', '<leader>k', ':bnext<Enter>', {desc = 'Go to next file'})
+vim.keymap.set('n', '<leader>j', ':bprev<Enter>', {desc = 'Go to previous file'})
+
 -- Tabs
 -- vim.keymap.set('n', '<leader>wt', ':tabnew<CR>', {silent = true, desc = 'Open new tab'})
 
 -- [[NVIM TERMINAL]]
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }) -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = ' Open Terminal'})
 
 -- [[DIAGNOSTICS]]

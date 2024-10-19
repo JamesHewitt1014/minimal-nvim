@@ -16,7 +16,8 @@ return {
 	opts = {
 		sources = {
 			"filesystem",
-			"document_symbols",
+			-- "document_symbols",
+			-- TODO: Could be an interesting thing to implement...
 		},
 		filesystem = {
 			window = {

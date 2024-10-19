@@ -77,8 +77,7 @@ return {
       ---- SELECTORS ----
       -- vim.keymap.set('n', '<leader>T', builtin.colorscheme, { desc = ' Change Theme' })
       vim.keymap.set('n', '<leader>T', ':Telescope themes<CR>', { silent = true, desc = 'Change Theme' })
-      vim.keymap.set('n', '<leader>m', builtin.marks, { desc = 'Marks' })
-      vim.keymap.set('n', '<leader>n', ':TodoTelescope<Enter>', {desc = 'Todos'})
+      vim.keymap.set('n', '<leader>ln', ':TodoTelescope<Enter>', {desc = 'Todos'})
       vim.keymap.set('n', '<leader>lt', builtin.treesitter, { desc = 'treesitter'})
 
       -- ALL TELESCOPE SELECTORS 

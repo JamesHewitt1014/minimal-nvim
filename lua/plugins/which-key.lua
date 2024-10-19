@@ -17,8 +17,7 @@ return {
 					{'<leader>w', desc = "Window Management"},
 					{'<leader>ld', desc = "Debug (GO-Only)"},
 					{'<leader>T', icon = ""},
-					{'<leader>m', icon = ""},
-					{'<leader>n', icon = ""},
+					{'<leader>ln', icon = ""},
 					{'gx', hidden = true },
 				}
 			)

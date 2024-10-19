@@ -18,6 +18,9 @@ return {
 			footer = ""
 			})
 		require('mini.move').setup()
+			-- Adds line movement with Alt + hjkl
+			-- could also be done with remaps <> to >gv for indenting
+			-- and could also map bind the move up move down...
       end,
     },
 }
