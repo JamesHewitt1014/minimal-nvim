@@ -16,7 +16,8 @@ return {
   require 'plugins.themes.moonfly',
   -- UI
   require 'plugins/lualine',
-  require 'plugins/startscreen',
+  -- require 'plugins/startscreen',
+  require 'plugins/mini-startscreen',
   require 'plugins/which-key',
   require 'plugins/telescope',
   require 'plugins/neo-tree',
@@ -26,7 +27,7 @@ return {
   require 'plugins/language-tools/treesitter',
   require 'plugins/language-tools/kickstart/debug', -- Remove at some point :) 
   -- UTILITIES
-  require 'plugins/mini-comments',
+  -- require 'plugins/mini-comments',
   require 'plugins/gitsigns',
   require 'plugins/autopairs',
   require 'plugins/colour-highlight',
