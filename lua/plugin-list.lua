@@ -10,14 +10,12 @@
 
 return {
   -- THEMES
-  require 'plugins.themes.tokyonight',
   require 'plugins.themes.catppuccin',
   require 'plugins.themes.nightfox',
   require 'plugins.themes.moonfly',
   -- UI
   require 'plugins/lualine',
-  -- require 'plugins/startscreen',
-  require 'plugins/mini-startscreen',
+  require 'plugins/mini-startscreen', -- Also includes the mini.move plugin
   require 'plugins/which-key',
   require 'plugins/telescope',
   require 'plugins/neo-tree',
@@ -27,7 +25,6 @@ return {
   require 'plugins/language-tools/treesitter',
   require 'plugins/language-tools/kickstart/debug', -- Remove at some point :) 
   -- UTILITIES
-  -- require 'plugins/mini-comments',
   require 'plugins/gitsigns',
   require 'plugins/autopairs',
   require 'plugins/colour-highlight',
