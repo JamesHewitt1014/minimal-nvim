@@ -1,12 +1,13 @@
--- [[ Editor Settings ]]
-require "options"
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
--- [[ Editor Keymaps ]]
-require "keymaps"
-
--- [[ Plugins ]]
-require 'plugin-manager'
+require 'plugins'
+require 'options'
+require 'keymaps'
 
 -- [[ SET THEME ]]
---vim.cmd([[colorscheme tokyonight]])
-require 'current-theme' -- Uses the 'Telescope Theme' plugin to grap the last selected theme
+vim.cmd([[colorscheme tokyonight]])
+--  require 'current-theme' -- Uses the 'Telescope Theme' plugin to grap the last selected theme
+
+
+
