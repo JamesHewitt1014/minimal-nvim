@@ -1,21 +1,19 @@
+--NOTE: To set settings for individual file types see "after/ftplugin/<FILETYPE>.lua"
+
 -- GUI
 vim.g.have_nerd_font = true
 vim.opt.termguicolors = true -- Needed for some terminals to display themes correctly
 vim.opt.number = true
-vim.opt.signcolumn = 'yes'
-vim.opt.list = true
-vim.opt.listchars = { tab = '  ', trail = '·' }
--- Sets how neovim will display certain whitespace characters in the editor. See `:help 'list'` and `:help 'listchars'`
-
--- CURSOR
+vim.opt.signcolumn = 'auto'
 vim.opt.cursorline = true -- highlight line your cursor is on
 vim.opt.scrolloff = 7 -- minimium number of lines to keep above and below the cursor
 
--- INDENTATION
+-- INDENTATION / WHITESPACE
 vim.opt.breakindent = true -- Allows lines to overflow
-vim.opt.tabstop = 2 -- Tab Size - Vim default is 8, VSCode default is 4
-vim.opt.shiftwidth = 2 -- Indentation using vim commands
--- TODO: How do I get treesitter / LSP based indentation?
+vim.opt.tabstop = 4 -- Tab Size - Vim default is 8, VSCode default is 4
+vim.opt.shiftwidth = 4 -- Amount of whittespace for one level of indentation
+vim.opt.list = true
+vim.opt.listchars = { tab = '  ', trail = '·' } -- Sets how neovim will display certain whitespace characters in the editor. See `:help 'list'` and `:help 'listchars'`
 
 -- VIM Search Settings
 vim.opt.ignorecase = true -- Ignore case-sensitive search with /?
@@ -48,6 +46,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- DIAGNOSTICS
 vim.diagnostic.config({
+	severity_sort = true, -- Priortise Error -> Warn -> Info -> Hint
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "", -- Remove signs in status column
@@ -56,20 +55,24 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = "",
 		},
 		numhl = {
-			[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-			[vim.diagnostic.severity.WARN] = 'WarningMsg'
+			[vim.diagnostic.severity.ERROR] = 'DiagnosticError',
+			[vim.diagnostic.severity.WARN] = 'DiagnosticWarn',
+			[vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
+			[vim.diagnostic.severity.HINT] = 'DiagnosticHint',
 		},
 	},
 	underline = true,
 	float = {                 -- Configuration for the diagnostic floating window
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
   },
 })
+
+--local testHint = function () if end end
 
 local openDiagnostic = function()
 	vim.diagnostic.open_float(0, {scope = "line"})
