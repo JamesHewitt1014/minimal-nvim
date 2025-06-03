@@ -6,16 +6,6 @@ function my_custom_picker()
   end)
 end
 
-local picker_actions = require('snacks.picker.actions')
-
-local function close_buffer(picker)
-	local entry = picker:get_entry()
-	if entry and entry.bufnr then
-		picker_actions.bufdelete(entry.bufnr)
-		picker:refresh()
-	end
-end
-
 return {
   enabled = true,
   sources = {

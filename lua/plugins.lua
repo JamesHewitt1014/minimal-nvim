@@ -34,8 +34,8 @@ add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
 
 --TODO: Come back to this...
---add_plugin({source = "lewis6991/gitsigns.nvim"})
---require('interface.git-intergration')
+add_plugin({source = "lewis6991/gitsigns.nvim"})
+require('interface.git-intergration')
 
 -- [LANGUAGE TOOLS]
 
@@ -65,7 +65,8 @@ add_plugin({
 	depends = {
 		'mfussenegger/nvim-dap',
 		'mason-org/mason.nvim',
-		'jay-babu/mason-nvim-dap.nvim',
+		--'jay-babu/mason-nvim-dap.nvim', --I can't get this to work
+		'leoluz/nvim-dap-go',
 		'nvim-neotest/nvim-nio'
 	}
 })
@@ -77,8 +78,11 @@ require('interface/themes')
 -- PLUGINS I MIGHT ADD
 -- DAP / DAP UI
 
--- TODO: Configure Debugger keybinds
+-- TODO: Do I want marks.nvim or something similar (i.e. Markit, Harpoon, Arrow, etc)
 -- TODO: Setup theme manager (also check out mini.colors & lush.nvim)
--- TODO: Tweak file explorer / picker options & keymaps
 -- TODO: Tweak diagnostics
--- TODO: Finish setting up GIT Support
+-- TODO: Tweak file explorer / picker options & keymaps
+-- TODO: Configure Debugger keybinds
+-- TODO: Decide if I want to leave GitSigns in and if I want more Git mappings
+-- TODO: Setup folding behaviour
+-- TODO: Any adjustments to UI - themes, layouts(pickers + keymap hints)

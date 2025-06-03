@@ -10,9 +10,6 @@ map('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window' })
 map('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
 map('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
-local dim = function() Snacks.dim() end
-map('n', '<leader>u', dim)
-
 -- [[FILE EXPLORER & NAVIGATION]]
 -- Wrapping picker functions to avoid potential issues
 local buffers = function() Snacks.picker.buffers() end
@@ -67,6 +64,11 @@ map('n', 'gr', goto_references ,{ desc = "Goto References" })
 --TODO: Conflict - need to fix up some of my 'g' command keybinds
 map('n', 'gI', goto_implementations, { desc = "Goto Implementations" })
 map('n', 'gD', vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+
+-- [[GIT INTEGRATION]]
+local gitsigns = require('gitsigns')
+map('n', '<leader>gb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git blame'})
+map('n', '<leader>gs', gitsigns.toggle_signs, { desc = "Toggle git signs"})
 
 -- [[OTHER]]
 -- Ctrl-backspace in insert to delete a word (Ctrl-w in insert mode deletes a word)

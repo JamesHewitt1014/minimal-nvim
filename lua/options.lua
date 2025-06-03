@@ -44,6 +44,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- CODE FOLDING
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldcolumn = "0"
+-- vim.opt.foldtext = ""
+-- vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--TODO: Better folding?
+
 -- DIAGNOSTICS
 vim.diagnostic.config({
 	severity_sort = true, -- Priortise Error -> Warn -> Info -> Hint
