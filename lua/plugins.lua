@@ -25,6 +25,7 @@ require('snacks').setup({
 	indent    = {enabled = false},
 	bigfile   = {enabled = false},
 })
+require('mini.notify').setup()
 require('mini.pairs').setup() --Bracket matching
 require('mini.icons').setup() --Icon provider
 require('interface.highlight')
@@ -32,13 +33,25 @@ require('interface.startscreen')
 require('interface.keymap-hints')
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
-
---TODO: Come back to this...
-add_plugin({source = "lewis6991/gitsigns.nvim"})
-require('interface.git-intergration')
+add_plugin({source = 'chentoast/marks.nvim'})
+require('marks').setup({
+	default_mappings = true,
+	signs = true,
+	mappings = {
+		set = "m",
+		toggle = "m.",
+		delete_line = "dm",
+		delete_buf = "<leader>md",
+		preview = false,
+		next = false,
+		prev = false,
+	},
+	bookmark_0 = {
+		sign = ""
+	}
+})
 
 -- [LANGUAGE TOOLS]
-
 -- LSP for Neovim Config
 add_plugin({source = 'folke/lazydev.nvim'})
 
@@ -79,10 +92,10 @@ require('interface/themes')
 -- DAP / DAP UI
 
 -- TODO: Do I want marks.nvim or something similar (i.e. Markit, Harpoon, Arrow, etc)
+-- 					I'm not happy with it
 -- TODO: Setup theme manager (also check out mini.colors & lush.nvim)
 -- TODO: Tweak diagnostics
 -- TODO: Tweak file explorer / picker options & keymaps
 -- TODO: Configure Debugger keybinds
--- TODO: Decide if I want to leave GitSigns in and if I want more Git mappings
 -- TODO: Setup folding behaviour
 -- TODO: Any adjustments to UI - themes, layouts(pickers + keymap hints)

@@ -1,4 +1,25 @@
+-- alias for setting keybinds
 local map = vim.keymap.set
+
+--Testing Mini.Pick
+require('mini.pick').setup({
+})
+require('mini.extra').setup()
+--NOTE: Remove the above
+
+-- [[FILE EXPLORER & NAVIGATION]]
+-- For keymaps when using pickers / explorer see 'interface/picker.lua'
+map("", "<tab>", File_explorer)
+map("n", "<leader><leader>", Buffers, {desc = "Select Buffer"})
+map("n", "<leader>s", Grep, {desc = "Search (Grep)"})
+map("n", "<leader>f", Search_files, {desc = "Search (Files)"})
+
+--TODO: Replace this with a theme picker
+map("", "<leader>p", My_custom_picker)
+map("n", "<leader>T", Snacks.picker.colorschemes, {desc="Themes"})
+
+map("n", "<leader>h", Help_picker, {desc="Test Pickers"})
+map("n", "<leader>i", Icons, {desc="Icon Picker"})
 
 -- [[WINDOW MANAGEMENT]]
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -10,42 +31,18 @@ map('n', '<leader>wh', ':new<Enter>', { desc = 'New Horizontal Window' })
 map('n', '<leader>wv', ':vertical:new<Enter>', { desc = 'New Vertical Window' })
 map('n', '<leader>wx', '<C-w>x', { desc = 'Switch windows around'})
 
--- [[FILE EXPLORER & NAVIGATION]]
--- Wrapping picker functions to avoid potential issues
-local buffers = function() Snacks.picker.buffers() end
-local grep = function() Snacks.picker.grep() end
-local search_files = function() Snacks.picker.files() end
-local file_explorer = function() Snacks.explorer.open() end
-
-map("n", "<leader><leader>", buffers, {desc = "Open files"})
-map("n", "<leader>s", grep, {desc = "Search (Grep)"})
-map("n", "<leader>f", search_files, {desc = "Files"})
-map("", "<tab>", file_explorer)
-
---TODO: Replace this with a theme picker
-map("", "<leader>p", my_custom_picker)
-map("n", "<leader>T", Snacks.picker.colorschemes, {desc="Themes"})
-
-local test = function() Snacks.picker() end
-map("n", "<leader>h", test, {desc="Test Pickers"})
-
---TODO: Go through :h snacks-picker and see what else I want
-
 -- [[NVIM TERMINAL]]
 local terminal = function() Snacks.terminal.toggle() end
 map("n", "<leader>t", terminal, {desc=" Terminal"})
 
--- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
--- vim.keymap.set('n', '<leader>t', ':new<Enter>:terminal<Enter>i', {desc = ' Open Terminal'})
-
 -- [[DIAGNOSTICS]]
 map('n', '<leader>le', vim.diagnostic.setloclist, { desc = 'Show Errors (diagnostics)'})
---TODO: Move my floating window function here...
---also figure out what I want in the way of diagnostics
---do I want to use Snacks Notifier
+map('n', '<leader>d', OpenFloatingDiagnostic, {desc = 'Show Errors under cursor'})
+map('n', 'gK', ToggleInlineErrors, {desc = 'Toggle Inline Errors'})
+--TODO: Modify these keybinds
 
 -- [[LSP]]
--- NOTE: Autocomplete keybinds are under "language-tools/autocomplete"
+-- Autocomplete keybinds are under "language-tools/autocomplete"
 local lsp_symbols_tree = function() Snacks.picker.lsp_symbols() end
 local lsp_type_def = function() Snacks.picker.lsp_type_definitions() end
 local goto_declarations = function() Snacks.picker.lsp_declarations() end
@@ -64,11 +61,6 @@ map('n', 'gr', goto_references ,{ desc = "Goto References" })
 --TODO: Conflict - need to fix up some of my 'g' command keybinds
 map('n', 'gI', goto_implementations, { desc = "Goto Implementations" })
 map('n', 'gD', vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-
--- [[GIT INTEGRATION]]
-local gitsigns = require('gitsigns')
-map('n', '<leader>gb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git blame'})
-map('n', '<leader>gs', gitsigns.toggle_signs, { desc = "Toggle git signs"})
 
 -- [[OTHER]]
 -- Ctrl-backspace in insert to delete a word (Ctrl-w in insert mode deletes a word)

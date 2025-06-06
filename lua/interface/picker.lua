@@ -1,4 +1,4 @@
-function my_custom_picker()
+function My_custom_picker()
   vim.ui.select({ "Option 1", "Option 2", "Option 3" }, {
     prompt = "Choose an option:",
   }, function(choice)
@@ -6,6 +6,17 @@ function my_custom_picker()
   end)
 end
 
+-- Wrapping functions to avoid potential issues
+Grep = function() Snacks.picker.grep() end
+Search_files = function() Snacks.picker.files() end
+File_explorer = function() Snacks.explorer.open() end
+Help_picker = function() Snacks.picker.help() end
+Buffers = function() Snacks.picker.buffers() end
+Icons = function() Snacks.picker.icons() end
+Layouts = function() Snacks.picker.picker_layouts() end
+All_pickers = function() Snacks.picker() end
+
+--Config
 return {
   enabled = true,
   sources = {
