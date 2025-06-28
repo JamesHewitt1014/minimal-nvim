@@ -24,37 +24,44 @@ require('snacks').setup({
 	notifier  = {enabled = false}, -- TODO: Decide if keeping this or not...
 	indent    = {enabled = false},
 	bigfile   = {enabled = false},
+	-- statuscolumn = {
+	-- 	left = {'fold', 'mark', 'sign'},
+	-- 	right = {'fold', 'git'},
+	-- 	folds = {
+	-- 		open = true,
+	-- 		git_hl = false,
+	-- 	},
+	-- 	refresh = 50,
+	-- }
 })
+
 require('mini.notify').setup()
 require('mini.pairs').setup() --Bracket matching
-require('mini.icons').setup() --Icon provider
+require('interface.icons')
 require('interface.highlight')
 require('interface.startscreen')
 require('interface.keymap-hints')
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
-add_plugin({source = 'chentoast/marks.nvim'})
-require('marks').setup({
-	default_mappings = true,
-	signs = true,
-	mappings = {
-		set = "m",
-		toggle = "m.",
-		delete_line = "dm",
-		delete_buf = "<leader>md",
-		preview = false,
-		next = false,
-		prev = false,
-	},
-	bookmark_0 = {
-		sign = ""
-	}
-})
+-- add_plugin({source = 'chentoast/marks.nvim'})
+-- require('marks').setup({
+-- 	default_mappings = true,
+-- 	signs = true,
+-- 	mappings = {
+-- 		set = "m",
+-- 		toggle = "m.",
+-- 		delete_line = "dm",
+-- 		delete_buf = "<leader>md",
+-- 		preview = false,
+-- 		next = false,
+-- 		prev = false,
+-- 	},
+-- 	bookmark_0 = {
+-- 		sign = ""
+-- 	}
+-- })
 
 -- [LANGUAGE TOOLS]
--- LSP for Neovim Config
-add_plugin({source = 'folke/lazydev.nvim'})
-
 add_plugin({
 	source = 'mason-org/mason-lspconfig.nvim',
 	depends = {
@@ -97,5 +104,7 @@ require('interface/themes')
 -- TODO: Tweak diagnostics
 -- TODO: Tweak file explorer / picker options & keymaps
 -- TODO: Configure Debugger keybinds
+
+-- MAYBE
 -- TODO: Setup folding behaviour
--- TODO: Any adjustments to UI - themes, layouts(pickers + keymap hints)
+-- TODO: Any adjustments to UI - themes, icons, layouts(pickers + keymap hints)

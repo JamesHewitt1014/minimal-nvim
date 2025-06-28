@@ -1,12 +1,6 @@
 -- alias for setting keybinds
 local map = vim.keymap.set
 
---Testing Mini.Pick
-require('mini.pick').setup({
-})
-require('mini.extra').setup()
---NOTE: Remove the above
-
 -- [[FILE EXPLORER & NAVIGATION]]
 -- For keymaps when using pickers / explorer see 'interface/picker.lua'
 map("", "<tab>", File_explorer)

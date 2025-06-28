@@ -10,6 +10,6 @@ startscreen.setup({
 			{name = "Quit Neovim", action = ":q", section = ""},
 	},
 	header = "Hello World",
-	footer = "What does this look like?"
+	footer = "The End."
 })
 

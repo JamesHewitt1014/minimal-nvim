@@ -10,11 +10,11 @@ later(
 	}
 )
 
-treesitter.install({ 'lua', 'rust' })
+treesitter.install({ 'lua', 'rust', 'go' })
 
 -- Enable highlighting in filetypes
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'rs', 'lua' }, -- Add file names here (i.e. rs, lua, go, etc)
+	pattern = { 'rs', 'lua', 'go'}, -- Add file names here (i.e. rs, lua, go, etc)
 	callback = function() vim.treesitter.start() end,
 })
 

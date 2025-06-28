@@ -26,15 +26,15 @@ require('blink.cmp').setup({
 		keymap = { preset = 'inherit'}, --use same as in insert mode
 		completion = {menu = {auto_show = true}},
 	},
-	sources = {
-	 default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-		providers = {
-			lazydev = {
-				name = "LazyDev",
-				module = "lazydev.integrations.blink",
-				-- make lazydev completions top priority (see `:h blink.cmp`)
-				score_offset = 100,
-			},
-		}
-	}
+	-- sources = {
+	--  default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+	-- 	providers = {
+	-- 		lazydev = {
+	-- 			name = "LazyDev",
+	-- 			module = "lazydev.integrations.blink",
+	-- 			-- make lazydev completions top priority (see `:h blink.cmp`)
+	-- 			score_offset = 100,
+	-- 		},
+	-- 	}
+	-- }
 })
