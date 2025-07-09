@@ -14,37 +14,19 @@ end
 require('mini.deps').setup({path = { package = path_package }})
 local add_plugin = MiniDeps.add
 
--- [USER INTERFACE]
-add_plugin({source = 'folke/snacks.nvim'})
-require('snacks').setup({
-	picker    = require('interface/picker'),
-	explorer  = {enabled = true}, --File Explorer just calls picker.explorer - for config see interface/picker
-	terminal  = {enabled = true},
-	scroll    = {enabled = true},
-	notifier  = {enabled = false}, -- TODO: Decide if keeping this or not...
-	indent    = {enabled = false},
-	bigfile   = {enabled = false},
-	-- statuscolumn = {
-	-- 	left = {'fold', 'mark', 'sign'},
-	-- 	right = {'fold', 'git'},
-	-- 	folds = {
-	-- 		open = true,
-	-- 		git_hl = false,
-	-- 	},
-	-- 	refresh = 50,
-	-- }
-})
-
-require('mini.notify').setup()
-require('mini.pairs').setup() --Bracket matching
+-- User Interface - Install and setup
 require('interface.icons')
 require('interface.highlight')
-require('interface.startscreen')
 require('interface.keymap-hints')
+require('interface.animations')
+require('interface.file-explorer')
+require('interface.picker')
+require('interface.startscreen')
+
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
 
--- [LANGUAGE TOOLS]
+-- Language Tools - Install and setup
 add_plugin({
 	source = 'mason-org/mason-lspconfig.nvim',
 	depends = {
@@ -77,17 +59,11 @@ require('language-tools.debugger')
 
 -- [THEMES]
 add_plugin({source = 'zaldih/themery.nvim'})
-require('interface/themes')
+require('interface.themes')
 
--- PLUGINS I MIGHT ADD
--- TODO: Checkout harpoon or similar
--- TODO: Setup theme manager (also check out mini.colors & lush.nvim)
-			-- https://github.com/zaldih/themery.nvim
--- TODO: Tweak diagnostics (maybe checkout trouble.nvim)
+-- PLUGINS TO ADD
 -- TODO: Tweak file explorer / picker options & keymaps
-			-- Switch to Mini.Files & Mini.Picker
+-- TODO: Checkout harpoon or similar
+-- TODO: Tweak diagnostics (maybe checkout trouble.nvim)
 -- TODO: Configure Debugger and Debugger keybinds
-
--- MAYBE
--- TODO: Setup folding behaviour
--- TODO: Any adjustments to UI - themes, icons, layouts(pickers + keymap hints)
+-- TODO: adjust keymap hints and icons

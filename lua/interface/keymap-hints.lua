@@ -13,7 +13,7 @@ hints.setup({
 			show_contents = true
 		}),
 		hints.gen_clues.registers({
-			show_contents = true --IDK its nice knowing what the special registers do...
+			show_contents = true
 		}),
 	}
 })

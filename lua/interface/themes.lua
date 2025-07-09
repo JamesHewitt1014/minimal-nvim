@@ -21,7 +21,7 @@ require("themery").setup({
 		},
 		{
 			name = "bamboo",
-			colorscheme = "bamboo-vulgaris"
+			colorscheme = "bamboo"
 		},
 		{
 			name = "miasma",
@@ -56,7 +56,10 @@ require("themery").setup({
 			name = "kanagawa wave",
 			colorscheme = "kanagawa-wave"
 		},
-	}
+	},
+	makePersistent = true
 })
 
 local themery = require("themery")
+
+

@@ -1,5 +1,7 @@
---NOTE: blink.cmp docs - https://cmp.saghen.dev/ 
+-- Auto bracket matching
+require('mini.pairs').setup()
 
+-- Code Completion
 require('blink.cmp').setup({
 	--Insert mode keybinds
 	keymap = {
@@ -38,3 +40,4 @@ require('blink.cmp').setup({
 	-- 	}
 	-- }
 })
+--NOTE: blink.cmp docs - https://cmp.saghen.dev/
