@@ -12,4 +12,3 @@ startscreen.setup({
 	header = "Hello World",
 	footer = "The End."
 })
-

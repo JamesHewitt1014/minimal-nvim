@@ -28,3 +28,9 @@ map("n", "<tab>", file_manager.open, {desc = "Search (Files)"})
 
 -- Add harpoon or similar
 
+local minifiles_toggle = function()
+	if not MiniFiles.close() then MiniFiles.open() end
+end
+
+--map("n", "<tab>", MiniFiles.open)
+

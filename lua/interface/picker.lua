@@ -6,6 +6,9 @@ function My_custom_picker()
   end)
 end
 
+require('mini.pick').setup()
+require('mini.extra').setup()
+
 -- Wrapping functions to avoid potential issues
 Grep = function() Snacks.picker.grep() end
 Search_files = function() Snacks.picker.files() end

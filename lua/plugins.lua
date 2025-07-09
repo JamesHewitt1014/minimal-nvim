@@ -43,23 +43,6 @@ require('interface.startscreen')
 require('interface.keymap-hints')
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
--- add_plugin({source = 'chentoast/marks.nvim'})
--- require('marks').setup({
--- 	default_mappings = true,
--- 	signs = true,
--- 	mappings = {
--- 		set = "m",
--- 		toggle = "m.",
--- 		delete_line = "dm",
--- 		delete_buf = "<leader>md",
--- 		preview = false,
--- 		next = false,
--- 		prev = false,
--- 	},
--- 	bookmark_0 = {
--- 		sign = ""
--- 	}
--- })
 
 -- [LANGUAGE TOOLS]
 add_plugin({
@@ -93,17 +76,17 @@ add_plugin({
 require('language-tools.debugger')
 
 -- [THEMES]
+add_plugin({source = 'zaldih/themery.nvim'})
 require('interface/themes')
 
 -- PLUGINS I MIGHT ADD
--- DAP / DAP UI
-
--- TODO: Do I want marks.nvim or something similar (i.e. Markit, Harpoon, Arrow, etc)
--- 					I'm not happy with it
+-- TODO: Checkout harpoon or similar
 -- TODO: Setup theme manager (also check out mini.colors & lush.nvim)
--- TODO: Tweak diagnostics
+			-- https://github.com/zaldih/themery.nvim
+-- TODO: Tweak diagnostics (maybe checkout trouble.nvim)
 -- TODO: Tweak file explorer / picker options & keymaps
--- TODO: Configure Debugger keybinds
+			-- Switch to Mini.Files & Mini.Picker
+-- TODO: Configure Debugger and Debugger keybinds
 
 -- MAYBE
 -- TODO: Setup folding behaviour
