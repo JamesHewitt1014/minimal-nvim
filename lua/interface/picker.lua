@@ -29,6 +29,26 @@ function RecentFiles()
 	MiniExtra.pickers.oldfiles()
 end
 
+function GoToDeclaration()
+	MiniExtra.pickers.lsp({scope='declaration'})
+end
+
+function GoToImplementation()
+	MiniExtra.pickers.lsp({scope='implementation'})
+end
+
+function GoToTypeDefinition()
+	MiniExtra.pickers.lsp({scope='type_definition'})
+end
+
+function GoToReferences()
+	MiniExtra.pickers.lsp({scope='references'})
+end
+
+function ListSymbols()
+	MiniExtra.pickers.lsp({scope='document_symbol'})
+end
+
 local function SearchOptions()
 	MiniExtra.pickers.options()
 end

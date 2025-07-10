@@ -16,12 +16,12 @@ local add_plugin = MiniDeps.add
 
 -- User Interface - Install and setup
 require('interface.icons')
-require('interface.highlight')
-require('interface.keymap-hints')
 require('interface.animations')
 require('interface.file-explorer')
+require('interface.highlight')
 require('interface.picker')
 require('interface.startscreen')
+require('interface.keymap-hints')
 
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
@@ -57,13 +57,17 @@ add_plugin({
 })
 require('language-tools.debugger')
 
+add_plugin({source='folke/lazydev.nvim'})
+require('lazydev').setup()
+
 -- [THEMES]
 add_plugin({source = 'zaldih/themery.nvim'})
 require('interface.themes')
 
 -- PLUGINS TO ADD
--- TODO: Tweak file explorer / picker options & keymaps
--- TODO: Checkout harpoon or similar
--- TODO: Tweak diagnostics (maybe checkout trouble.nvim)
--- TODO: Configure Debugger and Debugger keybinds
 -- TODO: adjust keymap hints and icons
+-- TODO: Tweak file explorer / picker options & keymaps
+-- TODO: Tweak diagnostics keymaps / settings (maybe checkout trouble.nvim)
+-- TODO: Checkout harpoon or similar
+-- TODO: Configure Debugger and Debugger keybinds
+-- TODO: Persistant theme switching

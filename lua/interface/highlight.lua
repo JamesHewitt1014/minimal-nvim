@@ -6,7 +6,7 @@ hipatterns.setup({
 
 		-- Highlight comment tags (i.e. TODO, NOTE, etc)
     todo  = { pattern = 'TODO:',  group = 'MiniHipatternsTodo'  },
-    note  = { pattern = {'NOTE', 'NOTE:', 'PERF:'},  group = 'MiniHipatternsNote'  },
+    note  = { pattern = {'NOTE', 'Note:', 'NOTE:', 'PERF:'},  group = 'MiniHipatternsNote'  },
     warn  = { pattern = {'WARN', 'WARNING'},  group = 'MiniHipatternsHack'  },
 		fix = { pattern = {'FIX', 'FIX:', 'FIXME'}, group = 'MiniHipatternsFixme' },
 	},
