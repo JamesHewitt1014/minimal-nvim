@@ -5,9 +5,9 @@ hipatterns.setup({
 		hex_color = hipatterns.gen_highlighter.hex_color(),
 
 		-- Highlight comment tags (i.e. TODO, NOTE, etc)
-    todo  = { pattern = 'TODO:',  group = 'MiniHipatternsTodo'  },
+    todo  = { pattern = {'TODO:', 'TODO'},  group = 'MiniHipatternsTodo'  },
     note  = { pattern = {'NOTE', 'Note:', 'NOTE:', 'PERF:'},  group = 'MiniHipatternsNote'  },
-    warn  = { pattern = {'WARN', 'WARNING'},  group = 'MiniHipatternsHack'  },
-		fix = { pattern = {'FIX', 'FIX:', 'FIXME'}, group = 'MiniHipatternsFixme' },
+    warn  = { pattern = {'WARN', 'WARNING', 'HACK'},  group = 'MiniHipatternsHack'  },
+		fix = { pattern = {'FIX', 'FIX:', 'FIXME', 'BUG'}, group = 'MiniHipatternsFixme' },
 	},
 })

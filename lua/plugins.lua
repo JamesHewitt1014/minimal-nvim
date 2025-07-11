@@ -22,9 +22,17 @@ require('interface.highlight')
 require('interface.picker')
 require('interface.startscreen')
 require('interface.keymap-hints')
+--TODO: Setup keymap hints to load after all other plugins?
 
 add_plugin({source = 'nvim-lualine/lualine.nvim'})
 require('interface.statusline')
+
+add_plugin({
+	source = 'ThePrimeagen/harpoon',
+	checkout = "harpoon2",
+	depends = {"nvim-lua/plenary.nvim"}
+})
+require('interface.bookmarks')
 
 -- Language Tools - Install and setup
 add_plugin({
@@ -32,6 +40,7 @@ add_plugin({
 	depends = {
 		'mason-org/mason.nvim',
 		'neovim/nvim-lspconfig',
+  	'folke/lazydev.nvim',
 	}
 })
 require('language-tools.ls-manager')
@@ -49,7 +58,6 @@ add_plugin({
 	source = 'rcarriga/nvim-dap-ui',
 	depends = {
 		'mfussenegger/nvim-dap',
-		'mason-org/mason.nvim',
 		--'jay-babu/mason-nvim-dap.nvim', --I can't get this to work
 		'leoluz/nvim-dap-go',
 		'nvim-neotest/nvim-nio'
@@ -57,17 +65,13 @@ add_plugin({
 })
 require('language-tools.debugger')
 
-add_plugin({source='folke/lazydev.nvim'})
-require('lazydev').setup()
-
--- [THEMES]
+-- THEMES
 add_plugin({source = 'zaldih/themery.nvim'})
 require('interface.themes')
 
--- PLUGINS TO ADD
--- TODO: adjust keymap hints and icons
 -- TODO: Tweak file explorer / picker options & keymaps
--- TODO: Tweak diagnostics keymaps / settings (maybe checkout trouble.nvim)
--- TODO: Checkout harpoon or similar
 -- TODO: Configure Debugger and Debugger keybinds
--- TODO: Persistant theme switching
+-- TODO: Persistant theme switching 
+				 -- maybe do a custom implementation
+				 -- maybe tweak the theme selection
+				 -- custom theme (lush.nvim, mini colors / hue, etc)

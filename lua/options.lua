@@ -1,5 +1,8 @@
 --NOTE: To set settings for individual file types see "after/ftplugin/<FILETYPE>.lua"
 
+-- DIAGNOSTICS
+require('language-tools.diagnostics')
+
 -- GUI
 vim.g.have_nerd_font = true
 vim.opt.termguicolors = true -- Needed for some terminals to display themes correctly
@@ -44,59 +47,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+--TODO: Better folding?
 -- CODE FOLDING
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldcolumn = "0"
 -- vim.opt.foldtext = ""
 -- vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
---TODO: Better folding?
-
--- DIAGNOSTICS
-local function float_diagnostic_text(diagnostic)
-	local type = vim.diagnostic.severity[diagnostic.severity]
-	return string.format("%s: %s", type, diagnostic.message)
-end
-
-vim.diagnostic.config({
-	severity_sort = true, -- Priortise Error -> Warn -> Info -> Hint
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "", -- Remove signs in status column
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
-		},
-		numhl = {
-			[vim.diagnostic.severity.ERROR] = 'DiagnosticError',
-			[vim.diagnostic.severity.WARN] = 'DiagnosticWarn',
-			[vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
-			[vim.diagnostic.severity.HINT] = 'DiagnosticHint',
-		},
-		--TODO: Try virtual text highlighting on error? instead of squiggle
-		--QUESTION: How do themes influence highlights - see highlight picker
-		-- I don't always like that the hint/info blurs the line...
-	},
-	underline = true,
-	float = {                 -- Configuration for the diagnostic floating window
-		focusable = false,
-		border = "rounded",
-		source = false,
-		header = "Diagnostics",
-		prefix = "",
-		format = float_diagnostic_text;
-  },
-})
-
-OpenFloatingDiagnostic = function()
-	vim.diagnostic.open_float(0, {scope = "line"})
-end
-
-ToggleInlineErrors = function()
-	local toggleLines = not vim.diagnostic.config().virtual_lines
-	vim.diagnostic.config({virtual_lines = toggleLines})
-end
-
---TODO: I Want to play around with this more... see what I can do...
---TODO: Want to compare snacks.layout with default nvim window options
--- See https://www.youtube.com/watch?v=5PIiKDES_wc

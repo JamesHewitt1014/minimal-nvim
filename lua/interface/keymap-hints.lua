@@ -24,7 +24,8 @@ hints.setup({
 		hint('n', 'gU', "Make text uppercase"),
 		hint('n', 'gv', "Reselect last selection"),
 		hint('n', 'gf', "Goto file under cursor"),
-		hint('n', '<leader>l', "Language Tools"),
+		hint('n', '<leader>l', "󰅩 Language Tools"),
+		hint('n', '<leader>d', " Debug"),
 		{ mode = 'n', keys = 'g%', 'Test'}
 	}
 })

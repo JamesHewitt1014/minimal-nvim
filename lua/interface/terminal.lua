@@ -1,0 +1,4 @@
+-- TODO
+-- Consider floatTerm
+-- Consider snacks.terminal
+-- See https://www.youtube.com/watch?v=5PIiKDES_wc

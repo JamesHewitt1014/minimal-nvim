@@ -49,7 +49,8 @@ statusline.setup {
 		icons_enabled = true,
 		theme = 'auto',
 		globalstatus = true, --Don't know how I feel about that
-		disabled_buftypes = {'quickfix', 'prompt', 'mini.startscreen'},
+		disabled_filetypes = {'prompt', 'ministarter'},
+		ignore_focus = {'quickfix', 'minipick'},
 		section_separators = {
 			left = '',
 			right = ''

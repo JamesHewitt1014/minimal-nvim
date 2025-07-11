@@ -25,6 +25,9 @@ require("mason-lspconfig").setup({
 	},
 })
 
+-- Language server support for neovim config and plugin development
+require('lazydev').setup()
+
 --NOTE: CSharp Language Server Options
 -- csharp_ls (csharp language server) - available on Mason but lacking in features
 -- Roslyn - The MS VSCode C# Extension LSP
